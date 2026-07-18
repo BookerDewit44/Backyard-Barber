@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { BASE_PATH } from "@/lib/basePath";
 
 const NAV_LINKS = [
   { href: "/services", label: "Services" },
@@ -23,7 +24,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 flex items-center justify-between gap-4 h-20">
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
-            src="/logo.jpg"
+            src={`${BASE_PATH}/logo.jpg`}
             alt="Backyard Barber logo"
             width={56}
             height={56}

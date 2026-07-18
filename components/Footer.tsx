@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BASE_PATH } from "@/lib/basePath";
 
 const PHONE_DISPLAY = "704-902-9827";
 const PHONE_HREF = "tel:+17049029827";
@@ -10,7 +11,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
         <div className="flex items-center gap-3">
           <Image
-            src="/logo.jpg"
+            src={`${BASE_PATH}/logo.jpg`}
             alt="Backyard Barber logo"
             width={48}
             height={48}

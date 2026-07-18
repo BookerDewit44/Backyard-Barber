@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "About | Backyard Barber",
@@ -12,7 +13,7 @@ export default function AboutPage() {
     <section className="mx-auto max-w-4xl px-4 py-16">
       <div className="flex flex-col items-center text-center gap-6 mb-12">
         <Image
-          src="/logo.jpg"
+          src={`${BASE_PATH}/logo.jpg`}
           alt="Backyard Barber logo"
           width={140}
           height={140}
