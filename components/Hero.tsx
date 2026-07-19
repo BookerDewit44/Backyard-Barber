@@ -5,15 +5,15 @@ import { BASE_PATH } from "@/lib/basePath";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-paper border-b-4 border-primary">
-      {/* Translucent logo watermark in the background */}
+      {/* Translucent logo watermark filling the background, centered */}
       <Image
         src={`${BASE_PATH}/logo.png`}
         alt=""
         aria-hidden="true"
-        width={800}
-        height={800}
+        fill
         priority
-        className="pointer-events-none select-none absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[34rem] max-w-[75%] h-auto opacity-10"
+        sizes="100vw"
+        className="pointer-events-none select-none object-contain object-center opacity-10"
       />
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:py-28 flex flex-col items-start gap-6">
         <span className="font-display uppercase tracking-widest text-primary text-sm">
