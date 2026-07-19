@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { appendPhotos } from "@/lib/photos";
 
 type ChatMessage = {
   role: "user" | "assistant";
@@ -91,8 +92,14 @@ export default function ChatWidget() {
 
     // Build multipart FormData from the form so photo uploads come through.
     // Controlled inputs serialize via their `name` attributes.
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     formData.set("form-name", "contact");
+    // Compress + split photos into per-field uploads (Netlify: 8MB / 1 file per field).
+    await appendPhotos(
+      formData,
+      form.querySelector<HTMLInputElement>('input[type="file"]'),
+    );
 
     try {
       // Same Netlify Forms pipeline as the Contact page form.

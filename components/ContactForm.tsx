@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { SERVICES } from "@/lib/services";
+import { appendPhotos } from "@/lib/photos";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -15,6 +16,11 @@ export default function ContactForm() {
     const form = event.currentTarget;
     const formData = new FormData(form);
     formData.append("form-name", "contact");
+    // Compress + split photos into per-field uploads (Netlify: 8MB / 1 file per field).
+    await appendPhotos(
+      formData,
+      form.querySelector<HTMLInputElement>('input[type="file"]'),
+    );
 
     try {
       // Submit to Netlify Forms as multipart (so photo uploads come through).
