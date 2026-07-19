@@ -126,8 +126,9 @@ export default function ChatWidget() {
     setQuote((q) => (q ? { ...q, [field]: value } : q));
   }
 
+  // text-base (16px) so iOS Safari doesn't auto-zoom when a field is focused.
   const quoteInputClass =
-    "border-2 border-ink/30 rounded-md px-2 py-1.5 text-sm font-sans outline-none focus:border-ink";
+    "border-2 border-ink/30 rounded-md px-2 py-1.5 text-base font-sans outline-none focus:border-ink";
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
@@ -248,7 +249,7 @@ export default function ChatWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type a message..."
-              className="flex-1 px-3 py-2 text-sm outline-none"
+              className="flex-1 px-3 py-2 text-base outline-none"
             />
             <button
               type="submit"
