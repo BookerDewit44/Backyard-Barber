@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SERVICES } from "@/lib/services";
+import { BASE_PATH } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Services | Backyard Barber Land Management",
@@ -26,12 +28,25 @@ export default function ServicesPage() {
         {SERVICES.map((service) => (
           <div
             key={service.slug}
-            className="bg-white border-2 border-ink rounded-lg p-6 shadow-[4px_4px_0_0_var(--color-ink)]"
+            className="bg-white border-2 border-ink rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--color-ink)]"
           >
-            <h2 className="font-display font-bold uppercase text-xl mb-2">
-              {service.name}
-            </h2>
-            <p className="text-ink-soft">{service.description}</p>
+            {service.image && (
+              <div className="relative aspect-video w-full border-b-2 border-ink">
+                <Image
+                  src={`${BASE_PATH}${service.image}`}
+                  alt={service.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div className="p-6">
+              <h2 className="font-display font-bold uppercase text-xl mb-2">
+                {service.name}
+              </h2>
+              <p className="text-ink-soft">{service.description}</p>
+            </div>
           </div>
         ))}
       </div>
