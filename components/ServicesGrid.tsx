@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SERVICES } from "@/lib/services";
 
 export default function ServicesGrid() {
@@ -21,14 +20,6 @@ export default function ServicesGrid() {
             </p>
           </div>
         ))}
-      </div>
-      <div className="text-center mt-10">
-        <Link
-          href="/services"
-          className="inline-block bg-ink hover:bg-ink-soft text-paper font-display font-bold uppercase tracking-wide px-6 py-3 rounded-md transition-colors"
-        >
-          View All Services
-        </Link>
       </div>
     </section>
   );
