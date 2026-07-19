@@ -17,14 +17,12 @@ export default function ContactForm() {
     formData.append("form-name", "contact");
 
     try {
-      // Submit to Netlify Forms — Netlify captures the lead and emails the
-      // configured recipients (business inbox + phone via carrier email-to-SMS).
+      // Submit to Netlify Forms as multipart (so photo uploads come through).
+      // Netlify captures the lead + photos and emails the configured recipients.
+      // Don't set Content-Type — the browser adds the multipart boundary.
       const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(
-          formData as unknown as Record<string, string>,
-        ).toString(),
+        body: formData,
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
@@ -54,6 +52,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      encType="multipart/form-data"
       className="bg-white border-2 border-ink rounded-lg p-6 sm:p-8 flex flex-col gap-4"
     >
       <div className="grid sm:grid-cols-2 gap-4">
@@ -108,6 +107,21 @@ export default function ContactForm() {
           rows={4}
           className="border-2 border-ink/30 rounded-md px-3 py-2 font-sans normal-case tracking-normal"
         />
+      </label>
+
+      <label className="flex flex-col gap-1 text-sm font-display uppercase tracking-wide">
+        Photos (optional)
+        <input
+          name="photos"
+          type="file"
+          accept="image/*"
+          multiple
+          className="border-2 border-ink/30 rounded-md px-3 py-2 font-sans normal-case tracking-normal text-sm file:mr-3 file:rounded file:border-0 file:bg-ink file:text-paper file:px-3 file:py-1 file:font-display file:uppercase file:text-xs file:cursor-pointer"
+        />
+        <span className="text-ink-soft text-xs font-sans normal-case tracking-normal">
+          Snap a few pics of the job (from your phone or computer) so we can
+          quote it faster.
+        </span>
       </label>
 
       <button
