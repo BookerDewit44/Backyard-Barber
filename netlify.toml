@@ -1,10 +1,14 @@
 [build]
   command = "npm run build"
+  # The Next.js build output. Setting it here (rather than in the Netlify UI)
+  # makes netlify.toml authoritative so a stray UI value can't override it — the
+  # earlier deploy failed because the UI had the publish dir set to "non".
+  publish = ".next"
 
-# Netlify's official Next.js runtime. It auto-detects the publish directory and
-# turns the app's API routes (/api/contact, /api/chat) into serverless functions,
-# so the contact form and chat work in production (unlike the static GitHub Pages
-# preview). Do NOT set GITHUB_PAGES here — that env var forces the crippled
-# static export in next.config.ts.
+# Netlify's official Next.js runtime. It turns the app's API routes
+# (/api/contact, /api/chat) into serverless functions, so the contact form and
+# chat work in production (unlike the static GitHub Pages preview). Do NOT set
+# GITHUB_PAGES here — that env var forces the crippled static export in
+# next.config.ts.
 [[plugins]]
   package = "@netlify/plugin-nextjs"
