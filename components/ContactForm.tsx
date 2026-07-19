@@ -13,13 +13,18 @@ export default function ContactForm() {
     setStatus("submitting");
 
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const formData = new FormData(form);
+    formData.append("form-name", "contact");
 
     try {
-      const res = await fetch("/api/contact", {
+      // Submit to Netlify Forms — Netlify captures the lead and emails the
+      // configured recipients (business inbox + phone via carrier email-to-SMS).
+      const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(
+          formData as unknown as Record<string, string>,
+        ).toString(),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
