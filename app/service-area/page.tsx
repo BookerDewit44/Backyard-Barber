@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Service Area | Backyard Barber",
-  description: "Backyard Barber proudly serves Statesville, NC and the surrounding area.",
+  title: "Service Area | Backyard Barber Land Management",
+  description: "Backyard Barber Land Management proudly serves Statesville, NC and the surrounding area.",
 };
 
 // Placeholder list until the owner confirms the exact service radius/towns (plan open question #1).
@@ -15,7 +15,7 @@ export default function ServiceAreaPage() {
         Where We Work
       </h1>
       <p className="text-ink-soft text-lg mb-8">
-        Backyard Barber is based in Statesville, NC and proudly serves the
+        Backyard Barber Land Management is based in Statesville, NC and proudly serves the
         surrounding area, including:
       </p>
       <ul className="flex flex-wrap justify-center gap-3 mb-10">

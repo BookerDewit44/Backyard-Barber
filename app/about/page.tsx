@@ -3,9 +3,9 @@ import Image from "next/image";
 import { BASE_PATH } from "@/lib/basePath";
 
 export const metadata: Metadata = {
-  title: "About | Backyard Barber",
+  title: "About | Backyard Barber Land Management",
   description:
-    "Backyard Barber has served Statesville, NC since 2010 with reliable lawn care, grading, and hauling.",
+    "Backyard Barber Land Management has served Statesville, NC since 2010 with reliable lawn care, grading, hauling, and stump grinding.",
 };
 
 export default function AboutPage() {
@@ -13,11 +13,11 @@ export default function AboutPage() {
     <section className="mx-auto max-w-4xl px-4 py-16">
       <div className="flex flex-col items-center text-center gap-6 mb-12">
         <Image
-          src={`${BASE_PATH}/logo.jpg`}
-          alt="Backyard Barber logo"
-          width={140}
-          height={140}
-          className="rounded-full border-4 border-ink object-cover"
+          src={`${BASE_PATH}/logo.png`}
+          alt="Backyard Barber Land Management logo"
+          width={200}
+          height={200}
+          className="rounded-lg bg-white object-contain"
         />
         <h1 className="font-display font-bold uppercase text-4xl">
           Est. 2010, Statesville NC
@@ -26,11 +26,11 @@ export default function AboutPage() {
 
       <div className="prose max-w-none text-ink-soft space-y-4 text-lg">
         <p>
-          Backyard Barber has been trimming, grading, and hauling for
-          Statesville-area properties since 2010. What started as a lawn care
-          outfit has grown into a full-service outdoor crew &mdash; handling
-          everything from routine mowing to grading job sites and spreading
-          gravel for driveways.
+          Backyard Barber Land Management has been trimming, grading, and
+          hauling for Statesville-area properties since 2010. What started as a
+          lawn care outfit has grown into a full-service land management crew
+          &mdash; handling everything from routine mowing to grading job sites,
+          grinding stumps, and spreading gravel for driveways.
         </p>
         <p>
           We show up on time, do the job right, and treat every yard like

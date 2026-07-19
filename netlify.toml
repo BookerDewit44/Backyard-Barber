@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+
+# Netlify's official Next.js runtime. It auto-detects the publish directory and
+# turns the app's API routes (/api/contact, /api/chat) into serverless functions,
+# so the contact form and chat work in production (unlike the static GitHub Pages
+# preview). Do NOT set GITHUB_PAGES here — that env var forces the crippled
+# static export in next.config.ts.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

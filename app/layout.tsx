@@ -17,9 +17,10 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Backyard Barber | Lawn Care, Grading & Hauling in Statesville, NC",
+  title:
+    "Backyard Barber Land Management | Lawn Care, Grading, Hauling & Stump Grinding in Statesville, NC",
   description:
-    "Backyard Barber provides lawn care, grading, debris hauling, and gravel spreading in Statesville, NC. Serving the area since 2010. Call 704-902-9827 for a free quote.",
+    "Backyard Barber Land Management provides lawn care, grading, debris hauling, stump grinding, and gravel spreading in Statesville, NC. Serving the area since 2010. Call 704-902-9827 for a free quote.",
 };
 
 export default function RootLayout({

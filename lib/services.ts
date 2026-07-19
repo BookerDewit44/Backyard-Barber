@@ -19,6 +19,12 @@ export const SERVICES: Service[] = [
       "Site grading and land leveling for drainage, new lawns, driveways, and building pads.",
   },
   {
+    slug: "stump-grinding",
+    name: "Stump Grinding",
+    description:
+      "Grinding tree stumps down below grade so you can reclaim your yard, replant, or build without the eyesore.",
+  },
+  {
     slug: "debris-hauling",
     name: "Debris Hauling",
     description:

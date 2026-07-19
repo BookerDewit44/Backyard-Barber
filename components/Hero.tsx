@@ -8,11 +8,12 @@ export default function Hero() {
           Statesville, NC &middot; Est. 2010
         </span>
         <h1 className="font-display font-bold uppercase text-4xl sm:text-6xl leading-tight max-w-3xl">
-          Lawn Care, Grading &amp; Hauling Done Right
+          Lawn Care, Grading &amp; Land Management Done Right
         </h1>
         <p className="max-w-xl text-paper/80 text-lg">
-          From weekly mowing to grading, debris hauling, and gravel spreading
-          &mdash; Backyard Barber keeps your property looking sharp.
+          From weekly mowing to grading, debris hauling, stump grinding, and
+          gravel spreading &mdash; Backyard Barber Land Management keeps your
+          property looking sharp.
         </p>
         <div className="flex flex-wrap gap-4 pt-2">
           <a

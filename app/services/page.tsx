@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SERVICES } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services | Backyard Barber",
+  title: "Services | Backyard Barber Land Management",
   description:
-    "Lawn care, grading, debris hauling, and gravel spreading services from Backyard Barber in Statesville, NC.",
+    "Lawn care, grading, debris hauling, stump grinding, and gravel spreading services from Backyard Barber Land Management in Statesville, NC.",
 };
 
 export default function ServicesPage() {

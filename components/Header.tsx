@@ -24,17 +24,18 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 flex items-center justify-between gap-4 h-20">
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
-            src={`${BASE_PATH}/logo.jpg`}
-            alt="Backyard Barber logo"
+            src={`${BASE_PATH}/logo.png`}
+            alt="Backyard Barber Land Management logo"
             width={56}
             height={56}
-            className="rounded-full border-2 border-ink object-cover"
+            className="rounded-md bg-white object-contain"
             priority
           />
-          <span className="hidden sm:block font-display font-bold text-xl tracking-wide text-ink leading-none">
-            BACKYARD
-            <br />
-            BARBER
+          <span className="hidden sm:block font-display font-bold text-lg tracking-wide text-ink leading-none">
+            BACKYARD BARBER
+            <span className="block text-[0.65rem] font-semibold tracking-[0.2em] text-ink-soft mt-1">
+              LAND MANAGEMENT
+            </span>
           </span>
         </Link>
 

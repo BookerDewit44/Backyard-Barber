@@ -11,14 +11,17 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
         <div className="flex items-center gap-3">
           <Image
-            src={`${BASE_PATH}/logo.jpg`}
-            alt="Backyard Barber logo"
+            src={`${BASE_PATH}/logo.png`}
+            alt="Backyard Barber Land Management logo"
             width={48}
             height={48}
-            className="rounded-full border-2 border-paper object-cover"
+            className="rounded-md bg-white object-contain p-0.5"
           />
           <div className="font-display font-bold tracking-wide">
             BACKYARD BARBER
+            <div className="font-sans font-semibold text-xs text-primary normal-case tracking-widest">
+              Land Management
+            </div>
             <div className="font-sans font-normal text-sm text-paper/70 normal-case tracking-normal">
               Statesville, NC &middot; Est. 2010
             </div>
@@ -33,7 +36,7 @@ export default function Footer() {
             {PHONE_DISPLAY}
           </a>
           <a
-            href="https://www.facebook.com/"
+            href="https://www.facebook.com/profile.php?id=61575530987820"
             target="_blank"
             rel="noreferrer"
             className="block hover:text-primary transition-colors"
@@ -62,7 +65,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-paper/20 py-4 text-center text-xs text-paper/60">
-        &copy; {new Date().getFullYear()} Backyard Barber. All rights reserved.
+        &copy; {new Date().getFullYear()} Backyard Barber Land Management. All rights reserved.
       </div>
     </footer>
   );
