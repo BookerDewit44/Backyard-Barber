@@ -22,6 +22,8 @@ export default function ServiceAreaMap() {
       if (cancelled || !containerRef.current || mapRef.current) return;
 
       const map = L.map(containerRef.current, {
+        center: CENTER,
+        zoom: 7,
         scrollWheelZoom: false,
         zoomControl: true,
       });
