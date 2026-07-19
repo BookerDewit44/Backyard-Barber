@@ -1,13 +1,13 @@
 import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
-import GalleryGrid from "@/components/GalleryGrid";
+import RecentWork from "@/components/RecentWork";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <ServicesGrid />
-      <GalleryGrid />
+      <RecentWork />
     </>
   );
 }
