@@ -13,7 +13,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="pointer-events-none select-none object-contain object-center opacity-10"
+        className="pointer-events-none select-none object-cover object-center opacity-10"
       />
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:py-28 flex flex-col items-start gap-6">
         <span className="font-display uppercase tracking-widest text-primary text-sm">
