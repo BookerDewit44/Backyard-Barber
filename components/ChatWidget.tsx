@@ -262,30 +262,43 @@ export default function ChatWidget() {
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="w-14 h-14 rounded-full bg-primary hover:bg-primary-dark border-2 border-ink shadow-lg flex items-center justify-center"
-        aria-label="Open chat"
-      >
-        {open ? (
+      {open ? (
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="ml-auto w-14 h-14 rounded-full bg-primary hover:bg-primary-dark border-2 border-ink shadow-lg flex items-center justify-center"
+          aria-label="Close chat"
+        >
           <span className="text-2xl leading-none">&times;</span>
-        ) : (
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="Chat with us for a free quote"
+          className="relative flex items-center gap-2 bg-primary hover:bg-primary-dark text-ink font-display font-bold uppercase tracking-wide text-sm px-5 py-3.5 rounded-full border-2 border-ink shadow-xl transition-colors"
+        >
+          {/* attention-grabbing pulse ring */}
+          <span
+            className="absolute inset-0 rounded-full bg-primary/70 animate-ping -z-10"
+            aria-hidden="true"
+          />
           <svg
-            width="24"
-            height="24"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
           >
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
-        )}
-      </button>
+          <span>Free Quote</span>
+        </button>
+      )}
     </div>
   );
 }
