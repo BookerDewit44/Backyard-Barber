@@ -9,6 +9,9 @@ export const WORK_PHOTOS = [
   "/work/work-05.jpg",
   "/work/work-06.jpg",
   "/work/work-07.jpg",
+  "/work/work-08.jpg",
+  "/work/work-09.jpg",
+  "/work/work-10.jpg",
 ];
 
 export const FACEBOOK_URL =
