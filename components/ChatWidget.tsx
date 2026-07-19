@@ -23,7 +23,8 @@ export default function ChatWidget() {
     const text = input.trim();
     if (!text || sending) return;
 
-    setMessages((prev) => [...prev, { role: "user", text }]);
+    const nextMessages: ChatMessage[] = [...messages, { role: "user", text }];
+    setMessages(nextMessages);
     setInput("");
     setSending(true);
 
@@ -31,7 +32,8 @@ export default function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
+        // Send the whole conversation so the assistant keeps context across turns.
+        body: JSON.stringify({ messages: nextMessages }),
       });
       const data = await res.json();
       setMessages((prev) => [
