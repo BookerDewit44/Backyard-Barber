@@ -280,7 +280,7 @@ export default function ChatWidget() {
         >
           {/* attention-grabbing pulse ring */}
           <span
-            className="absolute inset-0 rounded-full bg-primary/70 animate-ping -z-10"
+            className="absolute inset-0 rounded-full bg-primary/60 animate-soft-ping -z-10"
             aria-hidden="true"
           />
           <svg
