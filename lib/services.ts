@@ -82,11 +82,11 @@ export const SERVICES: Service[] = [
     slug: "landscaping-supply",
     name: "Landscaping Supply Delivery",
     description:
-      "Delivery of mulch, gravel, stone, sand, topsoil, pine needles, and more — dropped where you want it, or spread for you.",
+      "Delivery of mulch, gravel, stone, sand, topsoil, pine needles, manure, and more — dropped where you want it, or spread for you.",
     image: "/services/landscaping-supply.jpg",
-    tagline: "Mulch, gravel, stone, pine needles — delivered by the load.",
+    tagline: "Mulch, gravel, stone, pine needles, manure — delivered by the load.",
     details: [
-      "Save yourself the trailer rental and the trips back and forth to the supply yard. We haul mulch, gravel, stone, sand, topsoil, pine needles, and just about any other bulk landscaping material straight to your property.",
+      "Save yourself the trailer rental and the trips back and forth to the supply yard. We haul mulch, gravel, stone, sand, topsoil, pine needles, manure, and just about any other bulk landscaping material straight to your property.",
       "We'll drop it on a tarp exactly where you want it, or spread it for you while we're there. Not sure how much you need? Tell us the size of the area and we'll work it out.",
     ],
   },
