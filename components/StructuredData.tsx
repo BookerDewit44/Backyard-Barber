@@ -1,4 +1,5 @@
 import { SERVICES } from "@/lib/services";
+import { SERVICE_AREA_TOWNS } from "@/lib/serviceArea";
 import {
   BUSINESS_NAME,
   CITY,
@@ -31,15 +32,25 @@ export default function StructuredData() {
     foundingDate: FOUNDED_YEAR,
     priceRange: "$$",
     sameAs: [FACEBOOK_URL],
-    areaServed: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: GEO.lat,
-        longitude: GEO.lng,
+    // The GeoCircle gives Google the shape of the area; the named Places give
+    // it the strings people actually search ("lawn care Mooresville"). Both,
+    // because neither alone covers it.
+    areaServed: [
+      {
+        "@type": "GeoCircle",
+        geoMidpoint: {
+          "@type": "GeoCoordinates",
+          latitude: GEO.lat,
+          longitude: GEO.lng,
+        },
+        geoRadius: Math.round(SERVICE_RADIUS_MILES * 1609.34),
       },
-      geoRadius: Math.round(SERVICE_RADIUS_MILES * 1609.34),
-    },
+      ...SERVICE_AREA_TOWNS.map((town) => ({
+        "@type": "City",
+        name: town,
+        addressRegion: STATE,
+      })),
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: CITY,

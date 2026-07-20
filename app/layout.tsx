@@ -18,10 +18,14 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin"],
 });
 
+// Google truncates titles around 60 characters, so this front-loads the two
+// things worth winning — the brand and the city — and leaves the individual
+// services to rank through their own /services/[slug] pages, which each carry
+// a focused title. Cramming all six in here competed with all of them.
 const TITLE =
-  "Backyard Barber Land Management | Lawn Care, Grading, Hauling & Stump Grinding in Statesville, NC";
+  "Backyard Barber Land Management — Lawn Care & Stump Grinding in Statesville, NC";
 const DESCRIPTION =
-  "Backyard Barber Land Management provides lawn care, grading, debris hauling, stump grinding, and gravel spreading in Statesville, NC. Serving the area since 2010. Call 704-902-9827 for a free quote.";
+  "Lawn care, grading, debris hauling, stump grinding, gravel spreading, and landscaping supply delivery in Statesville, NC and 50 miles around. Serving the area since 2010. Call 704-902-9827 for a free quote.";
 
 export const metadata: Metadata = {
   // Lets child pages declare canonical/OG URLs as relative paths.

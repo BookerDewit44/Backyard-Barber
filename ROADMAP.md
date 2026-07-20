@@ -41,6 +41,9 @@ Deliberately **not** wired up (not needed yet): Sanity CMS, Neon Postgres, Resen
 - **Trust band** with stats that count up on scroll (no radius — see copy rules)
 - **Landscaping Supply Delivery** service — mulch, gravel, stone, sand,
   topsoil, pine needles; delivered or spread
+- **Town-level local SEO** — `lib/serviceArea.ts` lists the covered towns by
+  county; they render on `/service-area` and feed named `City` entries into
+  `areaServed` alongside the GeoCircle
 
 ---
 
@@ -62,8 +65,10 @@ Deliberately **not** wired up (not needed yet): Sanity CMS, Neon Postgres, Resen
 
 3. **Google Search Console** — set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in
    the Netlify env (the layout emits the meta tag only when it's set), verify,
-   then submit `/sitemap.xml`. The five service pages are already in the
-   sitemap and need a resubmit to get crawled.
+   then submit `/sitemap.xml`. The six service pages are already in the
+   sitemap and need a resubmit to get crawled. **As of 2026-07-20 the site is
+   not in Google's index at all** — a search for `mybackyardbarber.com` returns
+   nothing. Until this is done, nothing else here can rank.
 4. **Confirm Cloudflare domain auto-renew is on.**
 5. **Netlify Forms notifications** — verify the email recipients are configured
    in the UI (Forms → notifications): `backyardbarber@protonmail.com` plus the
@@ -103,6 +108,13 @@ Directives from the owner. Check these before writing marketing copy.
   the chat system prompt too; the bot invented seasonal advice until told not
   to, so keep that rule in `app/api/chat/route.ts`.
 - **Gravel:** no "crowning" language. It's raked flat and smooth.
+- **We do not do landscaping** in the planting/beds/sod/hardscape sense
+  (confirmed by the owner 2026-07-20). The six services in `lib/services.ts`
+  are the whole list. "Landscaping" may appear only as *landscaping supply
+  delivery*. Don't add a landscaping service page to chase search traffic —
+  it earns calls that have to be turned down, and Google demotes listings
+  whose site and Business Profile disagree about what the business does.
+- **Only list towns we'll actually drive to** in `lib/serviceArea.ts`.
 
 ---
 

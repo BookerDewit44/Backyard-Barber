@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import ServiceAreaMap from "@/components/ServiceAreaMap";
+import { SERVICE_AREA } from "@/lib/serviceArea";
 import { SERVICE_RADIUS_MILES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Service Area — Statesville, NC & ${SERVICE_RADIUS_MILES} Miles Around`,
-  description: `Backyard Barber Land Management serves Statesville, NC and roughly a ${SERVICE_RADIUS_MILES}-mile radius around it.`,
+  description: `Lawn care, grading, hauling, stump grinding, and landscaping supply delivery from Statesville, NC out to Mooresville, Hickory, Salisbury, Taylorsville, Mocksville, and the rest of a ${SERVICE_RADIUS_MILES}-mile radius.`,
   alternates: { canonical: "/service-area" },
 };
 
@@ -29,6 +30,31 @@ export default function ServiceAreaPage() {
       </p>
 
       <ServiceAreaMap />
+
+      {/* The town names are the point here — see lib/serviceArea.ts. Someone
+          searching for their own town needs to find it spelled out. */}
+      <h2 className="font-display font-bold uppercase text-2xl text-center mt-16 mb-2">
+        Towns We Cover
+      </h2>
+      <p className="text-center text-ink-soft max-w-2xl mx-auto mb-10">
+        Not an exhaustive list &mdash; if your town isn&apos;t here but looks
+        close on the map, call and ask.
+      </p>
+
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {SERVICE_AREA.map(({ county, towns }) => (
+          <div key={county}>
+            <h3 className="font-display font-semibold uppercase text-sm tracking-wide text-ink mb-2">
+              {county}
+            </h3>
+            <ul className="text-ink-soft space-y-1">
+              {towns.map((town) => (
+                <li key={town}>{town}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
