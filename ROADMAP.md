@@ -31,14 +31,16 @@ Deliberately **not** wired up (not needed yet): Sanity CMS, Neon Postgres, Resen
   then opens a pre-filled quote form
 - Lead capture through Netlify Forms, with client-compressed photo uploads
 - Recent Work marquee + gallery grid, both linking out to Facebook
-- Service-area map (100-mile radius)
+- Service-area map (50-mile radius, from `SERVICE_RADIUS_MILES` in `lib/site.ts`)
 - SEO pack: sitemap, robots, canonicals, OG card, LocalBusiness JSON-LD
 - **Service detail pages** at `/services/[slug]` — photo header, detail copy,
   CTA that carries the service into the quote form
 - **Photo lightbox** on the gallery and Recent Work (keyboard, swipe, Esc)
 - **Scroll reveals + hover polish**, barber-stripe section divider
 - **Seasonal spotlight** banner that follows the calendar, no upkeep needed
-- **Trust band** with stats that count up on scroll
+- **Trust band** with stats that count up on scroll (no radius — see copy rules)
+- **Landscaping Supply Delivery** service — mulch, gravel, stone, sand,
+  topsoil, pine needles; delivered or spread
 
 ---
 
@@ -92,6 +94,15 @@ Directives from the owner. Check these before writing marketing copy.
   the service-area page — that's what drives local search.
 - No "What's Included" lists on service pages.
 - No "per visit" / "per load" / "for the job" unit lingo.
+- **No service radius on the homepage.** The mileage figure lives only on the
+  Service Area page (and the map + `areaServed` schema, both driven by
+  `SERVICE_RADIUS_MILES`). Don't reintroduce it to the trust band.
+- **Stump grinding is year-round.** Season, weather, and frozen ground are not
+  factors — never imply a better time of year. Price depends on stump count,
+  size, and *location on the property* (machine access). This is enforced in
+  the chat system prompt too; the bot invented seasonal advice until told not
+  to, so keep that rule in `app/api/chat/route.ts`.
+- **Gravel:** no "crowning" language. It's raked flat and smooth.
 
 ---
 

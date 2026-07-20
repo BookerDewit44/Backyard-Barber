@@ -1,16 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FOUNDED_YEAR, SERVICE_RADIUS_MILES } from "@/lib/site";
+import { FOUNDED_YEAR } from "@/lib/site";
 
 const YEARS_IN_BUSINESS = new Date().getFullYear() - Number(FOUNDED_YEAR);
 
+// No service radius here on purpose — the mileage figure lives only on the
+// Service Area page, so the homepage doesn't fence the business in.
+//
 // value === null means "don't count it up, just show the suffix" — a year
 // ticking up from 0 reads as broken rather than impressive.
 const STATS: { value: number | null; suffix: string; label: string }[] = [
   { value: null, suffix: FOUNDED_YEAR, label: "Established" },
   { value: YEARS_IN_BUSINESS, suffix: "+", label: "Years in Business" },
-  { value: SERVICE_RADIUS_MILES, suffix: "-Mile", label: "Service Radius" },
   { value: null, suffix: "Free", label: "Estimates, Always" },
 ];
 
@@ -60,7 +62,7 @@ export default function TrustBand() {
       className="bg-paper-dim border-y-2 border-ink/10"
       aria-label="Why choose Backyard Barber"
     >
-      <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div className="mx-auto max-w-4xl px-4 py-10 grid grid-cols-3 gap-6 text-center">
         {STATS.map((stat) => (
           <div key={stat.label} className="flex flex-col gap-1">
             <span className="font-display font-bold text-3xl sm:text-4xl text-ink">

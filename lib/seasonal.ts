@@ -41,8 +41,8 @@ export const SEASONS: Season[] = [
     eyebrow: "Winter Project Season",
     headline: "The Best Time for the Big Jobs",
     blurb:
-      "Bare ground and no growing season means winter is ideal for stump grinding, grading, and gravel work. Book now and beat the spring rush.",
-    serviceSlug: "stump-grinding",
+      "With nothing growing, winter is a good window for grading, driveway work, and clearing out what you've been putting off. Book now and beat the spring rush.",
+    serviceSlug: "grading",
   },
 ];
 

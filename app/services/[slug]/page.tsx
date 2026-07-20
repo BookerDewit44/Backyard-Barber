@@ -113,7 +113,7 @@ export default async function ServiceDetailPage({
         <h2 className="font-display font-bold uppercase text-2xl text-center mb-8">
           We Also Do
         </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
           {others.map((other) => (
             <Link
               key={other.slug}
@@ -126,7 +126,7 @@ export default async function ServiceDetailPage({
                     src={`${BASE_PATH}${other.image}`}
                     alt=""
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 1024px) 50vw, 20vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>

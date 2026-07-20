@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
     tagline: "Gone below grade, so you can mow right over it.",
     details: [
       "A stump left behind is an obstacle every time you mow and an eyesore the rest of the time. We grind them down below grade so the spot can be seeded, planted, or just forgotten about.",
-      "Winter is the easiest time to get stumps out — the ground is bare and there's less to work around — but we grind year-round. Price depends on how many stumps and how big around they are.",
+      "Price comes down to three things: how many stumps, how big around they are, and where they sit on the property. A stump out in the open is straightforward; one tucked between a fence and a flower bed, or somewhere the machine has to be walked a long way, takes more work to reach.",
     ],
   },
   {
@@ -72,10 +72,22 @@ export const SERVICES: Service[] = [
     description:
       "Driveway and pathway gravel delivery and spreading, built to last and drain well.",
     image: "/services/gravel-spreading.jpg",
-    tagline: "A driveway that drains right and holds up.",
+    tagline: "A driveway that lies flat and holds up.",
     details: [
-      "Whether it's a top-off layer on an existing drive, a full resurface, or a brand-new base, we deliver the gravel and spread it properly — crowned to shed water instead of holding it in ruts.",
+      "Whether it's a top-off layer on an existing drive, a full resurface, or a brand-new base, we deliver the gravel and spread it properly — raked out flat and smooth, with no ruts or high spots left behind.",
       "Long rural driveways are routine for us. We'll advise on the right stone for what you're driving on it and how much depth the job actually needs.",
+    ],
+  },
+  {
+    slug: "landscaping-supply",
+    name: "Landscaping Supply Delivery",
+    description:
+      "Delivery of mulch, gravel, stone, sand, topsoil, pine needles, and more — dropped where you want it, or spread for you.",
+    image: "/services/landscaping-supply.jpg",
+    tagline: "Mulch, gravel, stone, pine needles — delivered by the load.",
+    details: [
+      "Save yourself the trailer rental and the trips back and forth to the supply yard. We haul mulch, gravel, stone, sand, topsoil, pine needles, and just about any other bulk landscaping material straight to your property.",
+      "We'll drop it on a tarp exactly where you want it, or spread it for you while we're there. Not sure how much you need? Tell us the size of the area and we'll work it out.",
     ],
   },
 ];

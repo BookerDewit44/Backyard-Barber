@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import ServiceAreaMap from "@/components/ServiceAreaMap";
+import { SERVICE_RADIUS_MILES } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Service Area — Statesville, NC & 100 Miles Around",
-  description:
-    "Backyard Barber Land Management serves Statesville, NC and roughly a 100-mile radius around it.",
+  title: `Service Area — Statesville, NC & ${SERVICE_RADIUS_MILES} Miles Around`,
+  description: `Backyard Barber Land Management serves Statesville, NC and roughly a ${SERVICE_RADIUS_MILES}-mile radius around it.`,
   alternates: { canonical: "/service-area" },
 };
 
@@ -16,9 +16,12 @@ export default function ServiceAreaPage() {
       </h1>
       <p className="text-center text-ink-soft max-w-2xl mx-auto mb-10">
         Based in Statesville, NC, Backyard Barber Land Management serves roughly
-        a <span className="font-semibold text-ink">100-mile radius</span> &mdash;
-        Iredell County and the surrounding region. Not sure if you&apos;re
-        covered? Give us a call at{" "}
+        a{" "}
+        <span className="font-semibold text-ink">
+          {SERVICE_RADIUS_MILES}-mile radius
+        </span>{" "}
+        &mdash; Iredell County and the surrounding region. Not sure if
+        you&apos;re covered? Give us a call at{" "}
         <a href="tel:+17049029827" className="font-semibold text-ink">
           704-902-9827
         </a>

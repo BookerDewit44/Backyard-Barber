@@ -23,7 +23,9 @@ export const FOUNDED_YEAR = "2010";
 
 // Statesville, NC — also drives the service-area map (components/ServiceAreaMap.tsx).
 export const GEO: { lat: number; lng: number } = { lat: 35.7826, lng: -80.8873 };
-export const SERVICE_RADIUS_MILES = 100;
+// Drives the Service Area page copy, the map circle, and the areaServed
+// GeoCircle in the structured data. Deliberately NOT shown on the homepage.
+export const SERVICE_RADIUS_MILES = 50;
 
 // Routes that should be crawled and listed in the sitemap, most important first.
 // Keep in sync with the pages under app/ and the nav in components/Header.tsx.

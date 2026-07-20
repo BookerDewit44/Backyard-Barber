@@ -9,7 +9,8 @@ export default function ServicesGrid() {
       <h2 className="reveal font-display font-bold uppercase text-3xl text-center mb-10">
         Our Services
       </h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* 3 across so the six services fill two clean rows. */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Scroll-driven animations ignore animation-delay, so the reveal
             stagger comes from each card finishing later along the timeline. */}
         {SERVICES.map((service, i) => (
@@ -25,7 +26,7 @@ export default function ServicesGrid() {
                   src={`${BASE_PATH}${service.image}`}
                   alt={service.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
