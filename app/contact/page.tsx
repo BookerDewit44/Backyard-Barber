@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Backyard Barber Land Management",
+  title: "Contact & Free Quote",
   description: "Get a free quote from Backyard Barber Land Management in Statesville, NC. Call 704-902-9827 or send a message.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

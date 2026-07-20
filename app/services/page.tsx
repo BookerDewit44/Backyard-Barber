@@ -4,9 +4,10 @@ import { SERVICES } from "@/lib/services";
 import { BASE_PATH } from "@/lib/basePath";
 
 export const metadata: Metadata = {
-  title: "Services | Backyard Barber Land Management",
+  title: "Lawn Care, Grading & Stump Grinding Services",
   description:
     "Lawn care, grading, debris hauling, stump grinding, and gravel spreading services from Backyard Barber Land Management in Statesville, NC.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

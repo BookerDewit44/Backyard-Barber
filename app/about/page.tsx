@@ -3,9 +3,10 @@ import Image from "next/image";
 import { BASE_PATH } from "@/lib/basePath";
 
 export const metadata: Metadata = {
-  title: "About | Backyard Barber Land Management",
+  title: "About — Serving Statesville Since 2010",
   description:
     "Backyard Barber Land Management has served Statesville, NC since 2010 with reliable lawn care, grading, hauling, and stump grinding.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

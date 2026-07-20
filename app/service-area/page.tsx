@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import ServiceAreaMap from "@/components/ServiceAreaMap";
 
 export const metadata: Metadata = {
-  title: "Service Area | Backyard Barber Land Management",
+  title: "Service Area — Statesville, NC & 100 Miles Around",
   description:
     "Backyard Barber Land Management serves Statesville, NC and roughly a 100-mile radius around it.",
+  alternates: { canonical: "/service-area" },
 };
 
 export default function ServiceAreaPage() {

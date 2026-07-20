@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 import type { Map as LeafletMap } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { GEO, SERVICE_RADIUS_MILES } from "@/lib/site";
 
-// Statesville, NC
-const CENTER: [number, number] = [35.7826, -80.8873];
-const RADIUS_MILES = 100;
+// Statesville, NC — shared with the LocalBusiness areaServed in lib/site.ts.
+const CENTER: [number, number] = [GEO.lat, GEO.lng];
 const METERS_PER_MILE = 1609.34;
 
 export default function ServiceAreaMap() {
@@ -36,7 +36,7 @@ export default function ServiceAreaMap() {
       }).addTo(map);
 
       const circle = L.circle(CENTER, {
-        radius: RADIUS_MILES * METERS_PER_MILE,
+        radius: SERVICE_RADIUS_MILES * METERS_PER_MILE,
         color: "#1a1a1a",
         weight: 2,
         fillColor: "#f5b800",
