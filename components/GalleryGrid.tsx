@@ -1,6 +1,5 @@
-import Image from "next/image";
+import WorkPhotos from "@/components/WorkPhotos";
 import { WORK_PHOTOS, FACEBOOK_URL } from "@/lib/work";
-import { BASE_PATH } from "@/lib/basePath";
 
 export default function GalleryGrid() {
   return (
@@ -9,7 +8,8 @@ export default function GalleryGrid() {
         Recent Work
       </h2>
       <p className="text-center text-ink-soft mb-10 max-w-xl mx-auto">
-        Real jobs around Statesville, NC. Follow us on{" "}
+        Real jobs, real properties. Click any photo to see it full size, or
+        follow us on{" "}
         <a
           href={FACEBOOK_URL}
           target="_blank"
@@ -20,22 +20,7 @@ export default function GalleryGrid() {
         </a>{" "}
         for more.
       </p>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {WORK_PHOTOS.map((src, i) => (
-          <div
-            key={i}
-            className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-ink"
-          >
-            <Image
-              src={`${BASE_PATH}${src}`}
-              alt="Recent work by Backyard Barber Land Management"
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
+      <WorkPhotos photos={WORK_PHOTOS} variant="grid" />
     </section>
   );
 }

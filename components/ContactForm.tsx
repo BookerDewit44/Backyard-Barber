@@ -6,8 +6,20 @@ import { appendPhotos } from "@/lib/photos";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function ContactForm() {
+// Optional prefill when a service page links here (see app/contact/page.tsx).
+// The dropdown stays editable — this only sets its initial value.
+type Props = {
+  initialService?: string;
+};
+
+export default function ContactForm({ initialService }: Props) {
   const [status, setStatus] = useState<Status>("idle");
+
+  // Ignore anything that isn't one of our services, so a junk query param
+  // can't leave the dropdown on a value the form can't submit.
+  const knownService = SERVICES.some((s) => s.name === initialService)
+    ? initialService
+    : undefined;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -95,6 +107,7 @@ export default function ContactForm() {
         Service Needed
         <select
           name="service"
+          defaultValue={knownService}
           className="border-2 border-ink/30 rounded-md px-3 py-2 font-sans normal-case tracking-normal"
         >
           {SERVICES.map((service) => (

@@ -55,6 +55,8 @@ export default function StructuredData() {
           "@type": "Service",
           name: service.name,
           description: service.description,
+          // Points Google at the service's own detail page.
+          url: `${SITE_URL}/services/${service.slug}`,
         },
       })),
     },

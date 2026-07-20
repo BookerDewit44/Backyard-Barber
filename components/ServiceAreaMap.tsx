@@ -67,7 +67,7 @@ export default function ServiceAreaMap() {
     <div
       ref={containerRef}
       role="img"
-      aria-label="Map of Backyard Barber Land Management's service area — roughly a 100-mile radius around Statesville, NC"
+      aria-label="Map of Backyard Barber Land Management's service area — roughly a 100-mile radius"
       className="isolate w-full h-[26rem] sm:h-[32rem] rounded-lg border-2 border-ink overflow-hidden"
     />
   );

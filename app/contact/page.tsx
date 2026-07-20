@@ -7,7 +7,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default function ContactPage() {
+// Service pages link here as /contact?service=<name> to preselect the dropdown.
+// Read it via the Server Component searchParams prop and pass it down, rather
+// than useSearchParams (which would need its own Suspense boundary).
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const service = (await searchParams).service;
+
   return (
     <section className="mx-auto max-w-2xl px-4 py-16">
       <h1 className="font-display font-bold uppercase text-4xl text-center mb-4">
@@ -20,7 +29,9 @@ export default function ContactPage() {
         </a>{" "}
         or send us a message below.
       </p>
-      <ContactForm />
+      <ContactForm
+        initialService={Array.isArray(service) ? service[0] : service}
+      />
     </section>
   );
 }

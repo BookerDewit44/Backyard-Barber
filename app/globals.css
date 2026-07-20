@@ -50,6 +50,66 @@ body {
   }
 }
 
+/* Scroll-triggered reveal for page sections. Uses CSS scroll-driven animations
+   so sections stay server components (no IntersectionObserver needed).
+   Both fallbacks below are required: without them, browsers that can't drive
+   the animation would leave content stuck at opacity 0. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: reveal 0.6s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 28%;
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Estimator price swap (components/Estimator.tsx) — the number is keyed on the
+   value, so this replays every time the estimate changes. */
+@keyframes fade-swap {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-swap {
+  animation: fade-swap 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-swap {
+    animation: none;
+  }
+}
+
 /* Gentle attention ring for the chat launcher (components/ChatWidget.tsx) */
 @keyframes soft-ping {
   0% {

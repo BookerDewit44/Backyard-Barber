@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { SERVICES } from "@/lib/services";
 import { BASE_PATH } from "@/lib/basePath";
 
@@ -27,18 +28,19 @@ export default function ServicesPage() {
 
       <div className="grid sm:grid-cols-2 gap-6">
         {SERVICES.map((service) => (
-          <div
+          <Link
             key={service.slug}
-            className="bg-white border-2 border-ink rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--color-ink)]"
+            href={`/services/${service.slug}`}
+            className="reveal group bg-white border-2 border-ink rounded-lg overflow-hidden shadow-[4px_4px_0_0_var(--color-ink)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_0_0_var(--color-primary)]"
           >
             {service.image && (
-              <div className="relative aspect-video w-full border-b-2 border-ink">
+              <div className="relative aspect-video w-full border-b-2 border-ink overflow-hidden">
                 <Image
                   src={`${BASE_PATH}${service.image}`}
                   alt={service.name}
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             )}
@@ -47,8 +49,11 @@ export default function ServicesPage() {
                 {service.name}
               </h2>
               <p className="text-ink-soft">{service.description}</p>
+              <span className="mt-3 inline-block font-display uppercase text-xs tracking-widest text-primary-dark group-hover:text-ink transition-colors">
+                Learn more &rarr;
+              </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
