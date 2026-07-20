@@ -2,11 +2,11 @@
 // page metadata, the sitemap, the LocalBusiness structured data, and the UI.
 
 // Canonical origin for absolute URLs (metadataBase, sitemap, JSON-LD).
-// Points at the Netlify subdomain until mybackyardbarber.com's DNS is live —
-// then set NEXT_PUBLIC_SITE_URL in the Netlify UI (or change this default) so
-// canonicals follow the real domain. Never give this a trailing slash.
+// Must match the primary domain configured in Netlify, otherwise canonicals
+// point somewhere that redirects. Override with NEXT_PUBLIC_SITE_URL for
+// preview deploys. Never give this a trailing slash.
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ornate-froyo-9a8406.netlify.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mybackyardbarber.com";
 
 export const BUSINESS_NAME = "Backyard Barber Land Management";
 
