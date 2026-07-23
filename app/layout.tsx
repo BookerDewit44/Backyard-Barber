@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import StructuredData from "@/components/StructuredData";
 import Analytics from "@/components/Analytics";
+import AdminSessionGuard from "@/components/AdminSessionGuard";
 import { BUSINESS_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -83,6 +84,7 @@ export default function RootLayout({
         <Footer />
         <ChatWidget />
         <Analytics />
+        <AdminSessionGuard />
       </body>
     </html>
   );

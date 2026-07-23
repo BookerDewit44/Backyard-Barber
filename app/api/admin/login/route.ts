@@ -20,14 +20,16 @@ export async function POST(req: Request) {
     return Response.json({ error: "Incorrect password." }, { status: 401 });
   }
 
-  const { value, maxAge } = makeSessionValue();
+  const { value } = makeSessionValue();
   const store = await cookies();
+  // No maxAge/expires => a browser-session cookie: it's dropped when the
+  // browser closes. Combined with the client-side auto-logout when leaving the
+  // admin area, the password must be re-entered each time you return.
   store.set(SESSION_COOKIE, value, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
-    maxAge,
   });
 
   return Response.json({ ok: true });
