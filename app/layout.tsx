@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import StructuredData from "@/components/StructuredData";
+import Analytics from "@/components/Analytics";
 import { BUSINESS_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -81,6 +82,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ChatWidget />
+        <Analytics />
       </body>
     </html>
   );

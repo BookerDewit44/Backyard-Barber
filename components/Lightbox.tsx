@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef } from "react";
 import { BASE_PATH } from "@/lib/basePath";
+import type { Photo } from "@/components/WorkPhotos";
 
 type Props = {
-  photos: string[];
+  photos: Photo[];
   /** null = closed */
   index: number | null;
   onClose: () => void;
@@ -107,8 +108,8 @@ export default function Lightbox({
 
         <div className="relative w-full h-full max-w-5xl">
           <Image
-            src={`${BASE_PATH}${photos[index]}`}
-            alt={`Recent work by Backyard Barber Land Management, photo ${index + 1} of ${photos.length}`}
+            src={`${BASE_PATH}${photos[index].src}`}
+            alt={photos[index].alt}
             fill
             sizes="100vw"
             className="object-contain"

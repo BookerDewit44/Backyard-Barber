@@ -1,7 +1,12 @@
 import WorkPhotos from "@/components/WorkPhotos";
-import { WORK_PHOTOS, FACEBOOK_URL } from "@/lib/work";
+import { FACEBOOK_URL } from "@/lib/work";
+import { getGalleryPhotos } from "@/lib/gallery";
 
-export default function GalleryGrid() {
+// Server component: reads the live, admin-managed gallery. The gallery page
+// sets `dynamic = "force-dynamic"` so edits in /admin show up immediately.
+export default async function GalleryGrid() {
+  const photos = await getGalleryPhotos();
+
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
       <h2 className="font-display font-bold uppercase text-3xl text-center mb-4">
@@ -20,7 +25,22 @@ export default function GalleryGrid() {
         </a>{" "}
         for more.
       </p>
-      <WorkPhotos photos={WORK_PHOTOS} variant="grid" />
+      {photos.length > 0 ? (
+        <WorkPhotos photos={photos} variant="grid" />
+      ) : (
+        <p className="text-center text-ink-soft">
+          New photos coming soon — follow us on{" "}
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-ink underline hover:text-primary-dark"
+          >
+            Facebook
+          </a>{" "}
+          in the meantime.
+        </p>
+      )}
     </section>
   );
 }

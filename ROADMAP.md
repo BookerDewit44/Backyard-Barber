@@ -19,6 +19,8 @@ Last updated: 2026-07-20
 | AI chat | Claude Haiku 4.5 | `/api/chat`, key in Netlify env |
 | Maps | Leaflet + OpenStreetMap | No API key, no billing |
 
+| Admin/gallery store | Netlify Blobs | Free, native to Netlify; local dev falls back to `.gallery-store/` |
+
 Deliberately **not** wired up (not needed yet): Sanity CMS, Neon Postgres, Resend.
 
 ---
@@ -44,6 +46,26 @@ Deliberately **not** wired up (not needed yet): Sanity CMS, Neon Postgres, Resen
 - **Town-level local SEO** — `lib/serviceArea.ts` lists the covered towns by
   county; they render on `/service-area` and feed named `City` entries into
   `areaServed` alongside the GeoCircle
+- **Admin gallery panel** at `/admin` (linked discreetly in the footer). The
+  owner logs in with a password and can add, caption, reorder, and remove
+  gallery photos, live, with no code push. Photos + a JSON manifest live in
+  **Netlify Blobs**; the gallery page and homepage marquee read from it. The
+  old static `lib/work.ts` list now only seeds the store on first run. See the
+  "Admin gallery" note under Gotchas for the required env vars.
+- **Self-hosted site analytics on `/admin`** — a first-party pageview beacon
+  (`components/Analytics.tsx` → `/api/track`) writes daily counts to Netlify
+  Blobs; the admin dashboard shows total views, a 7/30/90-day bar chart, and
+  top pages (`components/AdminAnalytics.tsx`). Privacy-friendly: no cookies, no
+  third party, visitor hash is date-salted so it can't be tracked across days.
+  `/admin` traffic is excluded. No GA/Cloudflare needed. Counts start at launch.
+- **Admin "forgot password"** — the login page can email a one-time reset link
+  (30-min expiry) to the owner, via the **same Netlify Forms pipeline** as the
+  contact form (a hidden `password-reset` form in `public/__forms.html`, sent
+  server-side from `/api/admin/forgot`; no separate email service). The link
+  opens `/admin/reset?token=…`. Setting a new password stores a salted scrypt
+  hash in Netlify Blobs, which then *overrides* `ADMIN_PASSWORD` (the env var is
+  only the bootstrap value before the first reset). Reset destination is fixed
+  to the Netlify-configured recipient — never user-supplied.
 
 ---
 
@@ -148,6 +170,19 @@ Hard-won, all of these cost time at least once.
   `z-[60]`.
 - **Screen-capture PowerShell trips Defender AMSI.** Use plain `.ps1` with a
   simple `Bitmap.Save`, not `EncodedCommand` or `EncoderParameters`.
+- **Admin gallery needs two Netlify env vars** or `/admin` won't work in prod:
+  `ADMIN_PASSWORD` (what the owner types to log in) and `ADMIN_SESSION_SECRET`
+  (a long random string used to sign the session cookie — generate with
+  `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`).
+  Both are already in local `.env.local` for dev. Netlify Blobs itself needs no
+  config — `@netlify/plugin-nextjs` injects the context automatically. The
+  gallery page is `dynamic = "force-dynamic"` so uploads show without a redeploy.
+- **Password-reset email recipient must be set in Netlify.** The reset link is
+  delivered by Netlify Forms, so after deploy go to Forms → `password-reset` →
+  notifications and add the owner's ProtonMail (same as the `contact` form).
+  Without it, "forgot password" mints a valid link but no email goes out. Dev
+  has no Netlify Forms handler, so `/api/admin/forgot` logs the link to the
+  server console instead (see `lib/sendResetEmail.ts`).
 
 ---
 

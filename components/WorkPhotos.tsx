@@ -5,10 +5,10 @@ import { useState } from "react";
 import Lightbox from "@/components/Lightbox";
 import { BASE_PATH } from "@/lib/basePath";
 
-const ALT = "Recent work by Backyard Barber Land Management";
+export type Photo = { src: string; alt: string };
 
 type Props = {
-  photos: string[];
+  photos: Photo[];
   /** "grid" = gallery page, "marquee" = homepage auto-scrolling strip. */
   variant: "grid" | "marquee";
 };
@@ -18,7 +18,7 @@ type Props = {
 export default function WorkPhotos({ photos, variant }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const tile = (src: string, i: number, sizes: string, className: string) => (
+  const tile = (photo: Photo, i: number, sizes: string, className: string) => (
     <button
       key={i}
       type="button"
@@ -27,8 +27,8 @@ export default function WorkPhotos({ photos, variant }: Props) {
       className={`group relative block cursor-zoom-in overflow-hidden ${className}`}
     >
       <Image
-        src={`${BASE_PATH}${src}`}
-        alt={ALT}
+        src={`${BASE_PATH}${photo.src}`}
+        alt={photo.alt}
         fill
         sizes={sizes}
         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -40,9 +40,9 @@ export default function WorkPhotos({ photos, variant }: Props) {
     <>
       {variant === "grid" ? (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {photos.map((src, i) =>
+          {photos.map((photo, i) =>
             tile(
-              src,
+              photo,
               i,
               "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
               "aspect-[4/3] w-full rounded-lg border-2 border-ink",
@@ -61,10 +61,10 @@ export default function WorkPhotos({ photos, variant }: Props) {
                 className="flex gap-4 pr-4 shrink-0"
                 aria-hidden={dup === 1}
               >
-                {photos.map((src, i) =>
+                {photos.map((photo, i) =>
                   dup === 0 ? (
                     tile(
-                      src,
+                      photo,
                       i,
                       "288px",
                       "h-52 w-72 shrink-0 rounded-lg border-2 border-paper",
@@ -75,7 +75,7 @@ export default function WorkPhotos({ photos, variant }: Props) {
                       className="relative h-52 w-72 shrink-0 rounded-lg overflow-hidden border-2 border-paper"
                     >
                       <Image
-                        src={`${BASE_PATH}${src}`}
+                        src={`${BASE_PATH}${photo.src}`}
                         alt=""
                         fill
                         sizes="288px"

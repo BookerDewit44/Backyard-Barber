@@ -1,5 +1,5 @@
-import WorkPhotos from "@/components/WorkPhotos";
-import { WORK_PHOTOS, FACEBOOK_URL } from "@/lib/work";
+import LiveWorkPhotos from "@/components/LiveWorkPhotos";
+import { FACEBOOK_URL } from "@/lib/work";
 
 export default function RecentWork() {
   return (
@@ -23,7 +23,7 @@ export default function RecentWork() {
         </a>
       </div>
 
-      <WorkPhotos photos={WORK_PHOTOS} variant="marquee" />
+      <LiveWorkPhotos variant="marquee" />
     </section>
   );
 }

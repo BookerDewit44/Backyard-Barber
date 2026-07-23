@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.3",
+    "@netlify/blobs": "^10.7.9",
     "leaflet": "^1.9.4",
     "next": "16.2.10",
     "react": "19.2.4",

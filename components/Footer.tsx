@@ -64,8 +64,19 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-paper/20 py-4 text-center text-xs text-paper/60">
-        &copy; {new Date().getFullYear()} Backyard Barber Land Management. All rights reserved.
+      <div className="border-t border-paper/20 py-4 text-center text-xs text-paper/60 flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1">
+        <span>
+          &copy; {new Date().getFullYear()} Backyard Barber Land Management. All rights reserved.
+        </span>
+        <span aria-hidden className="hidden sm:inline text-paper/30">
+          &middot;
+        </span>
+        <Link
+          href="/admin"
+          className="text-paper/50 hover:text-primary transition-colors"
+        >
+          Admin
+        </Link>
       </div>
     </footer>
   );

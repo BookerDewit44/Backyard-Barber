@@ -31,5 +31,18 @@
       <input type="file" name="photo5" />
       <input name="bot-field" />
     </form>
+
+    <!--
+      Admin password-reset email. The /api/admin/forgot route submits this
+      server-side with the one-time reset link; Netlify emails it to the
+      recipient configured under Forms → password-reset → notifications
+      (set that to the owner's ProtonMail). Not user-facing.
+    -->
+    <form name="password-reset" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="password-reset" />
+      <input type="url" name="resetlink" />
+      <input type="text" name="requested" />
+      <input name="bot-field" />
+    </form>
   </body>
 </html>
